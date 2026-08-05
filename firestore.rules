@@ -1,0 +1,32 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // 1. Aturan untuk koleksi 'users' (Login & Registrasi)
+    match /users/{userId} {
+      // Mengizinkan baca dan tulis untuk semua user agar login/register lancar
+      // Di masa depan, disarankan menggunakan request.auth != null
+      allow read, write: if true;
+    }
+
+    // 2. Aturan untuk koleksi hasil analisis (Dataset & SVM)
+    match /reviews_preprocessed/{docId} {
+      allow read, write: if true;
+    }
+
+    match /svm_results/{docId} {
+      allow read, write: if true;
+    }
+
+    match /tfidf_results/{docId} {
+      allow read, write: if true;
+    }
+
+    // 3. Aturan cadangan (Default deny atau Test Mode dengan batas waktu)
+    match /{document=**} {
+      // Mengizinkan akses sementara hingga akhir tahun 2026
+      allow read, write: if request.time < timestamp.date(2026, 12, 31);
+    }
+  }
+}
