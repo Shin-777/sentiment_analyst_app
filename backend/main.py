@@ -265,9 +265,3 @@ async def run_svm():
     except Exception as e:
         logger.error(f"Error in SVM: {e}")
         return {"status": "error", "message": str(e)}
-
-if __name__ == "__main__":
-    import uvicorn
-    # Ambil port dari environment variable (default 7860 untuk Hugging Face)
-    port = int(os.environ.get("PORT", 7860))
-    uvicorn.run(app, host="0.0.0.0", port=port)
