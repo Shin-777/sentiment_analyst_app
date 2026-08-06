@@ -1,45 +1,46 @@
-# Walkthrough - Persiapan Deployment Backend ke Cloud
+# Walkthrough - Persiapan Deployment Backend ke Koyeb
 
-Saya telah menyiapkan segala kebutuhan teknis agar backend Python Anda bisa online secara permanen. Setelah langkah-langkah di bawah ini selesai, aplikasi Anda akan bisa berjalan mandiri tanpa perlu laptop Anda menyala.
+Saya telah menyiapkan file `Dockerfile` dan memperbarui konfigurasi aplikasi agar backend Anda siap untuk di-online-kan secara gratis di **Koyeb**.
 
 ## Perubahan yang Dilakukan
 
-### 1. File Dependensi: `requirements.txt`
-Saya membuat [requirements.txt](file:///D:/dl/Skripsi/NewSAAPP/sentiment_analyst_app/backend/requirements.txt) di dalam folder backend. File ini berisi daftar pustaka (seperti FastAPI, Pandas, Sastrawi, dll) yang akan diinstal secara otomatis oleh server cloud saat proses deployment.
+### 1. Penambahan `backend/Dockerfile`
+Saya membuat file [Dockerfile](file:///D:/dl/Skripsi/NewSAAPP/sentiment_analyst_app/backend/Dockerfile) yang memberitahu Koyeb cara membangun lingkungan Python 3.12, menginstal library dari `requirements.txt`, dan menjalankan server FastAPI pada port 8000.
 
-### 2. Penyesuaian Kode: `main.py`
-Saya memperbarui [main.py](file:///D:/dl/Skripsi/NewSAAPP/sentiment_analyst_app/backend/main.py) dengan:
-- **CORS Middleware**: Mengizinkan aplikasi Android (Flutter) untuk berkomunikasi dengan server cloud tanpa diblokir oleh kebijakan keamanan browser/jaringan.
-- **Dynamic Port**: Kode sekarang bisa mendeteksi port yang diberikan oleh server cloud secara otomatis.
+### 2. Placeholder URL di `api_config.dart`
+Saya telah memperbarui [api_config.dart](file:///D:/dl/Skripsi/NewSAAPP/sentiment_analyst_app/lib/config/api_config.dart). Anda sekarang memiliki tempat yang jelas untuk menaruh URL dari Koyeb nanti.
+
+### 3. Persiapan Git
+Saya telah melakukan `commit` perubahan ini ke repositori lokal Anda.
 
 ---
 
-## Langkah Terakhir: Meng-online-kan Backend (Gratis)
+## Langkah-langkah Deployment ke Koyeb
 
-Silakan ikuti panduan ini untuk membuat backend Anda online:
+Silakan ikuti langkah terakhir ini untuk membuat backend online selamanya:
 
-### Tahap 1: Upload ke GitHub
-1. Buat akun di [GitHub](https://github.com/) jika belum punya.
-2. Buat **Repository Baru** (misal namanya: `sa-app-backend`).
-3. Upload **hanya isi dari folder `backend`** Anda ke repositori tersebut (Pastikan file `main.py`, `requirements.txt`, dan `serviceAccountKey.json` terikut).
+### Tahap 1: Push ke GitHub
+Jalankan perintah ini di Terminal Android Studio:
+```bash
+git push origin main
+```
 
-### Tahap 2: Hubungkan ke Render.com
-1. Buka [Render.com](https://render.com/) dan buat akun (gunakan login GitHub agar mudah).
-2. Klik tombol **New +** > **Web Service**.
-3. Pilih repositori `sa-app-backend` yang baru Anda buat.
-4. Isi konfigurasi berikut:
-   - **Runtime**: `Python 3`
-   - **Build Command**: `pip install -r requirements.txt`
-   - **Start Command**: `python main.py`
-5. Klik **Create Web Service**.
+### Tahap 2: Setup di Dashboard Koyeb
+1. Buka [Koyeb Dashboard](https://app.koyeb.com/).
+2. Klik **Create Web Service**.
+3. Pilih **GitHub** dan pilih repositori `sentiment_analyst_app` Anda.
+4. **Instance Type**: Pilih **Nano** (Gratis).
+5. **Region**: Pilih **Washington, D.C.** atau **Frankfurt**.
+6. **Builder**: Pilih **Docker**.
+7. **Port**: Pastikan tertulis **8000** (Koyeb biasanya mendeteksi EXPOSE dari Dockerfile).
+8. Klik **Deploy**.
 
-### Tahap 3: Update Alamat di Flutter
-1. Setelah Render selesai memproses (biasanya 2-5 menit), Anda akan mendapatkan URL di bagian atas dashboard Render (misal: `https://sa-app.onrender.com`).
-2. Buka file [api_config.dart](file:///D:/dl/Skripsi/NewSAAPP/sentiment_analyst_app/lib/config/api_config.dart) di Android Studio.
-3. Ganti `baseUrl` dengan alamat tersebut.
-4. Build ulang APK Anda (`flutter build apk --release`).
+### Tahap 3: Update URL di Flutter
+1. Setelah status di Koyeb menjadi **Healthy**, salin URL publiknya (contoh: `https://sentimen-app-user.koyeb.app`).
+2. Masukkan URL tersebut ke `lib/config/api_config.dart`.
+3. Kompilasi ulang APK Anda (`flutter build apk --release`).
 
-> [!TIP]
-> Sekarang Anda bisa mematikan laptop, mematikan Ngrok, dan menghapus file `ngrok.exe`. Aplikasi di HP siapa pun kini akan terhubung langsung ke server cloud selamanya.
+> [!NOTE]
+> Setelah langkah ini selesai, aplikasi Anda sudah benar-benar mandiri. User bisa melakukan analisis kapan saja tanpa perlu laptop Anda menyala.
 
-Apakah Anda menemui kesulitan saat proses upload ke GitHub?
+Apakah ada kendala saat melakukan `git push`?

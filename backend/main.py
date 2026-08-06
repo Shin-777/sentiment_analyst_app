@@ -268,6 +268,6 @@ async def run_svm():
 
 if __name__ == "__main__":
     import uvicorn
-    # Ambil port dari environment variable (untuk Render/Railway) atau default 8000
-    port = int(os.environ.get("PORT", 8000))
+    # Ambil port dari environment variable (default 7860 untuk Hugging Face)
+    port = int(os.environ.get("PORT", 7860))
     uvicorn.run(app, host="0.0.0.0", port=port)

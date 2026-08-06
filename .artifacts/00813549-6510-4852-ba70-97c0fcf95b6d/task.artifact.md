@@ -1,4 +1,5 @@
-- [ ] Create `backend/Dockerfile` for Koyeb deployment
-- [ ] Update `lib/config/api_config.dart` with placeholder
-- [ ] Push changes to GitHub
-- [ ] Verification and Final Instructions
+- [ ] Update `backend/Dockerfile` (Port 7860)
+- [ ] Update `backend/main.py` (Default Port 7860)
+- [ ] Update `lib/config/api_config.dart` (HF Placeholder)
+- [ ] Commit changes
+- [ ] Final instructions for Hugging Face deployment
