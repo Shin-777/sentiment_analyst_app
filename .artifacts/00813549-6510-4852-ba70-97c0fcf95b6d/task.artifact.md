@@ -1,4 +1,4 @@
-- [x] Create `backend/requirements.txt`
-- [x] Update `backend/main.py` (CORS & Cloud runner)
-- [x] Update `lib/config/api_config.dart`
-- [x] Final instructions for GitHub & Render deployment
+- [ ] Create `backend/Dockerfile` for Koyeb deployment
+- [ ] Update `lib/config/api_config.dart` with placeholder
+- [ ] Push changes to GitHub
+- [ ] Verification and Final Instructions
