@@ -55,6 +55,13 @@ Hubungkan Emulator atau HP Fisik, lalu jalankan:
 ```bash
 flutter run
 ```
+<img width="304" height="641" alt="Login" src="https://github.com/user-attachments/assets/bf923582-fa22-431b-9462-1cbe16f277d4" />
+<img width="224" height="486" alt="SVM_After" src="https://github.com/user-attachments/assets/e5538a6b-9752-4f01-83b1-bc55634b1667" />
+<img width="232" height="485" alt="TFIDF_After1" src="https://github.com/user-attachments/assets/1110559b-063b-4631-847e-a026122a4d75" />
+<img width="234" height="481" alt="Laporan" src="https://github.com/user-attachments/assets/f394796b-d020-40a4-acdc-b4e9d86c1659" />
+
+
+
 
 ## 📝 Catatan Penting
 - **Format Excel**: File ulasan yang diunggah harus memiliki kolom `name`, `stars`, dan `text`.
