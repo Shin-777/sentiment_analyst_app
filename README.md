@@ -55,10 +55,10 @@ Hubungkan Emulator atau HP Fisik, lalu jalankan:
 ```bash
 flutter run
 ```
-<img width="300" height="600" alt="Login" src="https://github.com/user-attachments/assets/bf923582-fa22-431b-9462-1cbe16f277d4" />
-<img width="300" height="600" alt="SVM_After" src="https://github.com/user-attachments/assets/e5538a6b-9752-4f01-83b1-bc55634b1667" />
-<img width="300" height="600" alt="TFIDF_After1" src="https://github.com/user-attachments/assets/1110559b-063b-4631-847e-a026122a4d75" />
-<img width="300" height="600" alt="Laporan" src="https://github.com/user-attachments/assets/f394796b-d020-40a4-acdc-b4e9d86c1659" />
+<img width="200" height="400" alt="Login" src="https://github.com/user-attachments/assets/bf923582-fa22-431b-9462-1cbe16f277d4" />
+<img width="200" height="400" alt="SVM_After" src="https://github.com/user-attachments/assets/e5538a6b-9752-4f01-83b1-bc55634b1667" />
+<img width="200" height="400" alt="TFIDF_After1" src="https://github.com/user-attachments/assets/1110559b-063b-4631-847e-a026122a4d75" />
+<img width="200" height="400" alt="Laporan" src="https://github.com/user-attachments/assets/f394796b-d020-40a4-acdc-b4e9d86c1659" />
 
 
 
